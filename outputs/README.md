@@ -1,14 +1,14 @@
-# CTZ Display 01 — version 0.2.0
+# CTZ Display 01 — version 0.3.0
 
 CTZ Display 01 combines Inter 4.001 with Pyidaungsu 2.5.3 Regular and Bold in one bilingual variable-font family.
 
 ## Current files
 
 - `CTZDisplay01-Variable.ttf` — upright variable TTF for desktop apps and Figma.
-- `CTZDisplay01-Italic-Variable.ttf` — italic variable TTF; Latin is italic and Myanmar remains upright.
+- `CTZDisplay01-Italic-Variable.ttf` — italic variable TTF with embedded slanted Myanmar outlines.
 - `CTZDisplay01-Variable.woff2` — upright webfont.
 - `CTZDisplay01-Italic-Variable.woff2` — italic webfont.
-- `CTZDisplay01-Specimen-Regular.png` and `CTZDisplay01-Specimen-Bold.png` — rendering comparison.
+- `CTZDisplay01-Specimen-*.png` — Regular, Bold, Italic, and Bold Italic rendering specimens.
 - `OFL.txt` — SIL Open Font License 1.1 and attribution notices.
 
 Files beginning with `CTZDisplay-` are the superseded 0.1 build and should not be installed alongside CTZ Display 01.
@@ -20,8 +20,11 @@ Files beginning with `CTZDisplay-` are the superseded 0.1 build and should not b
 - Inter varies continuously across both axes.
 - Myanmar uses Pyidaungsu Regular from weight 100 through 600.
 - Myanmar switches to the authentic Pyidaungsu Bold drawings from weight 650 through 900.
+- The italic font contains slanted Myanmar outlines for both weight states.
 
 The Myanmar change is intentionally discrete rather than smoothly interpolated. The supplied Pyidaungsu Regular and Bold binaries are not interpolation-compatible: their glyph order differs and most shared glyphs have different contour/component structures. The variable font therefore uses OpenType Feature Variations to activate the complete Bold Myanmar glyph set at bold weights.
+
+The Myanmar italic is embedded in the font by transforming the actual outlines and their GPOS positioning anchors to match Inter's italic angle. It is therefore not synthetic styling applied by Figma. Since no separately designed Pyidaungsu italic master was supplied, the result is technically an oblique rather than a hand-drawn cursive italic.
 
 ## Myanmar shaping
 
@@ -36,6 +39,7 @@ Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight sha
 - Confirmed the Myanmar Regular→Bold switch occurs at weight 650.
 - Compared Regular and Bold shaping with their original Pyidaungsu source fonts.
 - Rendered mixed Latin/Myanmar specimens at weights 400 and 700.
+- Rendered and visually checked Myanmar Italic and Bold Italic specimens.
 - Compressed to WOFF2, decompressed, and reloaded successfully.
 
 The fonts were not installed into the user's operating system or opened directly in Figma. They are structurally suitable for Figma's local-font path. Remove the old CTZ Display installation, install the new CTZ Display 01 TTFs, and restart or reload Figma to avoid cached font data.
@@ -47,8 +51,8 @@ The supplied Inter and Pyidaungsu binaries identify themselves as SIL Open Font 
 ## SHA-256
 
 ```text
-1f2b6d650389a44a0b24f18d1463b142cf5422c3b19f378437542dad65fe0c9a  CTZDisplay01-Variable.ttf
-2a212b646bd19d12596f43e2570050e80a89cf456ab3b518a2a79034557325fc  CTZDisplay01-Italic-Variable.ttf
-4e849de10ed4ad1a8b434321abcd7c6c5b825f064f08cff104664d993ffa5440  CTZDisplay01-Variable.woff2
-9389f31bf08fd3a89da9d315a93c77148346f7bf88a4e14f293e4dead7e33c19  CTZDisplay01-Italic-Variable.woff2
+d74f8cc8c66a330ddc924dbc5bbbb706b1a840008060d37c30f198a96d4d96d3  CTZDisplay01-Variable.ttf
+6e8d16e82182f636c1b91d6240fa5230305254803f649160f0ddfbcaa0507c98  CTZDisplay01-Italic-Variable.ttf
+95e5b6fda0c3a60cd91524c517134f2f1d3ac4154d990d1e04fb85414f56e603  CTZDisplay01-Variable.woff2
+b879acbd1e13b90f0504e77cbbbb10b7a79bf7c6497f816cd203264b83fa67d7  CTZDisplay01-Italic-Variable.woff2
 ```

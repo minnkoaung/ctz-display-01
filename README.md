@@ -22,6 +22,8 @@ Pyidaungsu Regular and Bold are separate static fonts. Their outline structures 
 
 CTZ Display 01 therefore includes both complete Myanmar glyph sets. OpenType Feature Variations switch from Pyidaungsu Regular to Pyidaungsu Bold at weight 650. This produces a deliberate step between SemiBold and Bold while Inter continues to interpolate smoothly across the full weight range.
 
+The italic font contains permanently slanted Myanmar outlines for both weight states. Myanmar marks and positioning anchors are transformed with the outlines, so the italic appearance comes from the font itself rather than Figma's synthetic italic styling. Because no hand-drawn Pyidaungsu italic master exists in the supplied sources, this is technically an oblique design.
+
 ## Download
 
 - [Upright variable TTF](outputs/CTZDisplay01-Variable.ttf)
@@ -36,15 +38,16 @@ CTZ Display 01 therefore includes both complete Myanmar glyph sets. OpenType Fea
 - Myanmar uses Pyidaungsu Regular at weights 100–600.
 - Myanmar switches to the authentic Pyidaungsu Bold glyph set at weights 650–900.
 - Myanmar shaping uses the original `mym2` GSUB/GPOS behavior from each Pyidaungsu master.
+- The italic font includes slanted Myanmar outlines in both Regular and Bold states.
 
-The Myanmar transition is discrete because the supplied Regular and Bold outlines are not interpolation-compatible. The italic font keeps Myanmar upright because no Pyidaungsu italic source was available.
+The Myanmar weight transition is discrete because the supplied Regular and Bold outlines are not interpolation-compatible.
 
 ## Known limitations
 
 - Myanmar does not gradually interpolate between Regular and Bold.
 - Weights 100–600 share the Pyidaungsu Regular design.
 - Weights 650–900 share the Pyidaungsu Bold design.
-- Myanmar remains upright in the italic font because no genuine Pyidaungsu italic master was supplied.
+- Myanmar italic is an engineered oblique transformation, not a separately hand-drawn italic design.
 - Installations should still be checked with representative Burmese copy in the target Figma and operating-system environment.
 
 ## Specimens
@@ -56,6 +59,14 @@ The Myanmar transition is discrete because the supplied Regular and Bold outline
 ### Bold
 
 ![CTZ Display 01 Bold](outputs/CTZDisplay01-Specimen-Bold.png)
+
+### Italic
+
+![CTZ Display 01 Italic](outputs/CTZDisplay01-Specimen-Italic.png)
+
+### Bold Italic
+
+![CTZ Display 01 Bold Italic](outputs/CTZDisplay01-Specimen-Bold-Italic.png)
 
 ## Installation
 
