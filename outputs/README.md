@@ -6,6 +6,8 @@ CTZ Display 01 combines Inter 4.001 with Pyidaungsu 2.5.3 Regular and Bold in on
 
 - `CTZDisplay01-Variable.ttf` — upright variable TTF for desktop apps and Figma.
 - `CTZDisplay01-Italic-Variable.ttf` — italic variable TTF with embedded slanted Myanmar outlines.
+- `CTZDisplay01-Static-TTF.zip` — 18 static TTFs for LibreOffice and software without variable-font support.
+- `static/` — unpacked Thin through Black, upright and italic static fonts.
 - `CTZDisplay01-Variable.woff2` — upright webfont.
 - `CTZDisplay01-Italic-Variable.woff2` — italic webfont.
 - `CTZDisplay01-Specimen-*.png` — Regular, Bold, Italic, and Bold Italic rendering specimens.
@@ -26,6 +28,12 @@ The Myanmar change is intentionally discrete rather than smoothly interpolated. 
 
 The Myanmar italic is embedded in the font by transforming the actual outlines and their GPOS positioning anchors to match Inter's italic angle. It is therefore not synthetic styling applied by Figma. Since no separately designed Pyidaungsu italic master was supplied, the result is technically an oblique rather than a hand-drawn cursive italic.
 
+## Static family
+
+The static package provides Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, and Black in upright and italic styles. All variation tables are removed, and each file has explicit legacy and typographic family/style metadata for traditional application font menus.
+
+Install either the variable fonts or the static family, not both simultaneously. Use the static package for LibreOffice and other applications that do not support OpenType variable fonts.
+
 ## Myanmar shaping
 
 Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight shaping matches Pyidaungsu 2.5.3 Regular; Bold-weight shaping matches Pyidaungsu 2.5.3 Bold. Complex substitutions, medials, vowels, punctuation, and Myanmar digits were tested with HarfBuzz.
@@ -41,6 +49,7 @@ Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight sha
 - Rendered mixed Latin/Myanmar specimens at weights 400 and 700.
 - Rendered and visually checked Myanmar Italic and Bold Italic specimens.
 - Compressed to WOFF2, decompressed, and reloaded successfully.
+- Validated all 18 static fonts for naming, weight classes, style flags, absence of variable tables, reload, and Myanmar shaping.
 
 The fonts were not installed into the user's operating system or opened directly in Figma. They are structurally suitable for Figma's local-font path. Remove the old CTZ Display installation, install the new CTZ Display 01 TTFs, and restart or reload Figma to avoid cached font data.
 
@@ -55,4 +64,5 @@ d74f8cc8c66a330ddc924dbc5bbbb706b1a840008060d37c30f198a96d4d96d3  CTZDisplay01-V
 6e8d16e82182f636c1b91d6240fa5230305254803f649160f0ddfbcaa0507c98  CTZDisplay01-Italic-Variable.ttf
 95e5b6fda0c3a60cd91524c517134f2f1d3ac4154d990d1e04fb85414f56e603  CTZDisplay01-Variable.woff2
 b879acbd1e13b90f0504e77cbbbb10b7a79bf7c6497f816cd203264b83fa67d7  CTZDisplay01-Italic-Variable.woff2
+f8e128e74ffdc8af6bfe5f009e71507944bdcfcae62a893be1116ad8d75cadf5  CTZDisplay01-Static-TTF.zip
 ```

@@ -28,9 +28,28 @@ The italic font contains permanently slanted Myanmar outlines for both weight st
 
 - [Upright variable TTF](outputs/CTZDisplay01-Variable.ttf)
 - [Italic variable TTF](outputs/CTZDisplay01-Italic-Variable.ttf)
+- [Complete static TTF family](outputs/CTZDisplay01-Static-TTF.zip) — recommended for LibreOffice and software without variable-font support
 - [Upright WOFF2](outputs/CTZDisplay01-Variable.woff2)
 - [Italic WOFF2](outputs/CTZDisplay01-Italic-Variable.woff2)
 - [Technical notes](outputs/README.md)
+
+## Static font family
+
+The static package contains 18 conventional TTF files:
+
+| Upright | Italic |
+|---|---|
+| Thin | Thin Italic |
+| ExtraLight | ExtraLight Italic |
+| Light | Light Italic |
+| Regular | Regular Italic |
+| Medium | Medium Italic |
+| SemiBold | SemiBold Italic |
+| Bold | Bold Italic |
+| ExtraBold | ExtraBold Italic |
+| Black | Black Italic |
+
+These files contain no variable-font tables. Each weight has explicit family, style, weight-class, bold, and italic metadata for traditional font menus in LibreOffice and similar applications. Myanmar uses the Regular design through SemiBold and the authentic Bold design from Bold through Black, matching the variable family.
 
 ## Variable behavior
 
@@ -70,7 +89,7 @@ The Myanmar weight transition is discrete because the supplied Regular and Bold 
 
 ## Installation
 
-Remove older CTZ Display builds before installing the CTZ Display 01 TTF files. Restart or reload Figma after installation to clear cached font data.
+Remove older CTZ Display builds before installing CTZ Display 01. Install either the two variable TTFs or the static family, not both at the same time, because their matching family/style identities can be reported as duplicates. Use the static package for LibreOffice. Restart affected applications after installation to clear cached font data.
 
 ## License
 
