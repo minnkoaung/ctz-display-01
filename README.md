@@ -4,7 +4,7 @@ CTZ Display 01 is a bilingual Latin–Myanmar variable font combining Inter 4.00
 
 ## Line-height and baseline fix
 
-Version 0.4.0 fixes oversized text boxes and awkward icon/text centering in Figma, LibreOffice, and similar layout applications. Earlier builds inherited Pyidaungsu's very large vertical metrics (`2230/-1300`) and typographic line gap (`1663`), even when a text layer contained only Latin characters.
+Version 0.4.1 fixes oversized text boxes and awkward icon/text centering in Figma, LibreOffice, and similar layout applications. Earlier builds inherited Pyidaungsu's very large vertical metrics (`2230/-1300`) and typographic line gap (`1663`), even when a text layer contained only Latin characters.
 
 CTZ Display 01 now uses Inter's compact typographic line box (`1984/-494`, zero line gap) for consistent Latin baselines and UI alignment. Separate Windows clipping bounds remain large enough for tall and deep Myanmar forms, and the `USE_TYPO_METRICS` flag is enabled. Glyph outlines and Myanmar shaping positions were not vertically shifted.
 
@@ -39,17 +39,13 @@ The italic font contains permanently slanted Myanmar outlines for both weight st
 - [Italic WOFF2](outputs/CTZDisplay01-Italic-Variable.woff2)
 - [Technical notes](outputs/README.md)
 
-## Vertical-alignment QA
+## Version 0.4.1 alignment fix
 
-An experimental, separately named **CTZ Display QA** family is available for controlled Figma and browser testing. It fixes the variable-font naming collision and restores Inter's variable GPOS kerning data without replacing the production **CTZ Display 01** family or translating glyph outlines.
+The successful CTZ Display QA changes are now included in the production family. Version 0.4.1 gives the variable fonts a CTZ-specific PostScript variation prefix and restores Inter's GDEF Item Variation Store, preserving exact variable Latin kerning. Its typographic metrics remain identical to Inter, while safe Windows clipping bounds protect Myanmar marks and stacks.
 
-- [Investigation report](VERTICAL_ALIGNMENT_REPORT.md)
-- [Download the experimental QA package](outputs/CTZDisplayQA-Experimental.zip)
-- [QA fonts and browser specimen](outputs/qa/README.md)
-- [Figma test plan](outputs/qa/specimens/FIGMA_TEST_PLAN.md)
-- [Chromium comparison](outputs/qa/specimens/browser-comparison-chromium.png)
+- [Vertical-alignment investigation](VERTICAL_ALIGNMENT_REPORT.md)
 
-Browser validation matches the exact Inter reference for the tested Latin strings and line boxes. Figma Desktop verification remains manual because its local-font cache and line-box implementation cannot be validated from font tables alone.
+Remove CTZ Display 01 v0.4.0 before installing v0.4.1, then fully restart Figma to clear the old family cache.
 
 ## Static font family
 

@@ -111,7 +111,7 @@ report = {
     "predicted_auto_line_height_px_at_14": {
         "inter_current_hhea": (1984 - (-494)) / 2048 * 14,
         "ctz_pre_0_4_hhea": (2230 - (-1300)) / 2048 * 14,
-        "ctz_0_4_hhea": (1984 - (-494)) / 2048 * 14,
+        "ctz_0_4_1_hhea": (1984 - (-494)) / 2048 * 14,
     },
 }
 print(json.dumps(report, indent=2))

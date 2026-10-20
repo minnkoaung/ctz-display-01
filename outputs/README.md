@@ -1,4 +1,4 @@
-# CTZ Display 01 — version 0.4.0
+# CTZ Display 01 — version 0.4.1
 
 CTZ Display 01 combines Inter 4.001 with Pyidaungsu 2.5.3 Regular and Bold in one bilingual variable-font family.
 
@@ -30,7 +30,7 @@ The Myanmar italic is embedded in the font by transforming the actual outlines a
 
 ## Vertical metrics
 
-Version 0.4.0 normalizes `hhea` and OS/2 typographic metrics to Inter: ascender `1984`, descender `-494`, and line gap `0`. This fixes the oversized line box inherited from Pyidaungsu and aligns Latin text consistently beside UI icons. Windows clipping metrics remain `2269/1300` to protect extreme Myanmar glyphs, and `USE_TYPO_METRICS` remains enabled.
+Version 0.4.1 normalizes `hhea` and OS/2 typographic metrics to Inter: ascender `1984`, descender `-494`, and line gap `0`. It also restores Inter's GDEF Item Variation Store for exact variable kerning and uses a CTZ-specific variation PostScript prefix. Windows clipping metrics are `2306/1300`, covering measured family extremes without changing line-placement metrics, and `USE_TYPO_METRICS` remains enabled.
 
 ## Static family
 
@@ -56,7 +56,7 @@ Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight sha
 - Validated all 18 static fonts for naming, weight classes, style flags, absence of variable tables, reload, and Myanmar shaping.
 - Confirmed variable instances and all static fonts match Inter's vertical metrics while retaining Myanmar safety bounds.
 
-The fonts were not installed into the user's operating system or opened directly in Figma. They are structurally suitable for Figma's local-font path. Remove the old CTZ Display installation, install the new CTZ Display 01 TTFs, and restart or reload Figma to avoid cached font data.
+The fixes were confirmed in Figma with a separately named QA build before promotion to production. Remove CTZ Display 01 v0.4.0, install the v0.4.1 TTFs, and fully restart Figma to avoid cached font data.
 
 ## Licensing
 
@@ -65,9 +65,9 @@ The supplied Inter and Pyidaungsu binaries identify themselves as SIL Open Font 
 ## SHA-256
 
 ```text
-4ef9734754bafca96099f9e2a1d615ad2095184433136964494d75e79ddba44c  CTZDisplay01-Variable.ttf
-88673989b22fcd73218a1f320844c20c07433ab074911407d9975cb4546bc128  CTZDisplay01-Italic-Variable.ttf
-340d9a87856deb0c3da1d1c0b4b57e877a097090ac1a4d39ddf34d21eeada271  CTZDisplay01-Variable.woff2
-78bf54ef4212028e062f74e492dc309f7ec3d4ed3cf5fa788cd8909b3e556a21  CTZDisplay01-Italic-Variable.woff2
-11651621f0ff611f18c5e7c8baa52c84d853cc3b663251e8ff73570c8856b773  CTZDisplay01-Static-TTF.zip
+3ac6f3f8bbc411db66ca10e83165d5472c5253b7dbc59d67b9db3296e3deb380  CTZDisplay01-Variable.ttf
+244b0a6fa73701ce902203602dfaac1e69cfad0f4ca3aaef3161296470bf2383  CTZDisplay01-Italic-Variable.ttf
+34533d6591087e59ef545e0c5703af7ccc36ded1f69cf6195076cf4aa261a583  CTZDisplay01-Variable.woff2
+e55b922612ea0bb043f6e43f2fb867e152cbfa08a2c00793f9a9a43fd4bf9c00  CTZDisplay01-Italic-Variable.woff2
+30f0a5c8a5c5343c03a546ba1b439fb8456766c44ce5707288c528c4550df6dc  CTZDisplay01-Static-TTF.zip
 ```

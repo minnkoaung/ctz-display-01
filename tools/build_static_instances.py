@@ -52,9 +52,9 @@ def build_instances(source_name: str, italic: bool) -> None:
 
         set_name(font, 1, legacy_family)
         set_name(font, 2, legacy_subfamily)
-        set_name(font, 3, f"2026;CTZDisplay01-{postscript_style}")
+        set_name(font, 3, f"2026;CTZDisplay01-{postscript_style};0.4.1")
         set_name(font, 4, f"CTZ Display 01 {style_name}")
-        set_name(font, 5, "Version 0.4.0")
+        set_name(font, 5, "Version 0.4.1")
         set_name(font, 6, f"CTZDisplay01-{postscript_style}")
         set_name(font, 16, "CTZ Display 01")
         set_name(font, 17, style_name)

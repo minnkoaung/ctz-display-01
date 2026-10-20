@@ -231,9 +231,9 @@ def build(source_name: str, output_name: str, italic: bool) -> None:
     set_name(merged, 0, "Copyright 2016 The Inter Project Authors; Copyright 2014-2016 Myanmar Computer Federation. Modified and combined as CTZ Display 01 in 2026.")
     set_name(merged, 1, "CTZ Display 01")
     set_name(merged, 2, style)
-    set_name(merged, 3, f"2026;CTZDisplay01-{style}")
+    set_name(merged, 3, f"2026;CTZDisplay01-{style};0.4.1")
     set_name(merged, 4, f"CTZ Display 01 {style}")
-    set_name(merged, 5, "Version 0.4.0")
+    set_name(merged, 5, "Version 0.4.1")
     set_name(merged, 6, postscript)
     set_name(merged, 13, "This Font Software is licensed under the SIL Open Font License, Version 1.1. CTZ Display 01 is a derivative of Inter and Pyidaungsu.")
     set_name(merged, 14, "https://openfontlicense.org")
@@ -242,7 +242,7 @@ def build(source_name: str, output_name: str, italic: bool) -> None:
     set_name(merged, 25, "CTZDisplay01Italic" if italic else "CTZDisplay01")
 
     merged["OS/2"].achVendID = "CTZ "
-    merged["head"].fontRevision = 0.4
+    merged["head"].fontRevision = 0.401
     merged["post"].italicAngle = -9.4 if italic else 0
     merged.save(OUTPUTS / output_name, reorderTables=False)
 
