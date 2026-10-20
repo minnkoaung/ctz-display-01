@@ -1,4 +1,4 @@
-# CTZ Display 01 — version 0.3.0
+# CTZ Display 01 — version 0.4.0
 
 CTZ Display 01 combines Inter 4.001 with Pyidaungsu 2.5.3 Regular and Bold in one bilingual variable-font family.
 
@@ -28,6 +28,10 @@ The Myanmar change is intentionally discrete rather than smoothly interpolated. 
 
 The Myanmar italic is embedded in the font by transforming the actual outlines and their GPOS positioning anchors to match Inter's italic angle. It is therefore not synthetic styling applied by Figma. Since no separately designed Pyidaungsu italic master was supplied, the result is technically an oblique rather than a hand-drawn cursive italic.
 
+## Vertical metrics
+
+Version 0.4.0 normalizes `hhea` and OS/2 typographic metrics to Inter: ascender `1984`, descender `-494`, and line gap `0`. This fixes the oversized line box inherited from Pyidaungsu and aligns Latin text consistently beside UI icons. Windows clipping metrics remain `2269/1300` to protect extreme Myanmar glyphs, and `USE_TYPO_METRICS` remains enabled.
+
 ## Static family
 
 The static package provides Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, and Black in upright and italic styles. All variation tables are removed, and each file has explicit legacy and typographic family/style metadata for traditional application font menus.
@@ -50,6 +54,7 @@ Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight sha
 - Rendered and visually checked Myanmar Italic and Bold Italic specimens.
 - Compressed to WOFF2, decompressed, and reloaded successfully.
 - Validated all 18 static fonts for naming, weight classes, style flags, absence of variable tables, reload, and Myanmar shaping.
+- Confirmed variable instances and all static fonts match Inter's vertical metrics while retaining Myanmar safety bounds.
 
 The fonts were not installed into the user's operating system or opened directly in Figma. They are structurally suitable for Figma's local-font path. Remove the old CTZ Display installation, install the new CTZ Display 01 TTFs, and restart or reload Figma to avoid cached font data.
 
@@ -60,9 +65,9 @@ The supplied Inter and Pyidaungsu binaries identify themselves as SIL Open Font 
 ## SHA-256
 
 ```text
-d74f8cc8c66a330ddc924dbc5bbbb706b1a840008060d37c30f198a96d4d96d3  CTZDisplay01-Variable.ttf
-6e8d16e82182f636c1b91d6240fa5230305254803f649160f0ddfbcaa0507c98  CTZDisplay01-Italic-Variable.ttf
-95e5b6fda0c3a60cd91524c517134f2f1d3ac4154d990d1e04fb85414f56e603  CTZDisplay01-Variable.woff2
-b879acbd1e13b90f0504e77cbbbb10b7a79bf7c6497f816cd203264b83fa67d7  CTZDisplay01-Italic-Variable.woff2
-f8e128e74ffdc8af6bfe5f009e71507944bdcfcae62a893be1116ad8d75cadf5  CTZDisplay01-Static-TTF.zip
+4ef9734754bafca96099f9e2a1d615ad2095184433136964494d75e79ddba44c  CTZDisplay01-Variable.ttf
+88673989b22fcd73218a1f320844c20c07433ab074911407d9975cb4546bc128  CTZDisplay01-Italic-Variable.ttf
+340d9a87856deb0c3da1d1c0b4b57e877a097090ac1a4d39ddf34d21eeada271  CTZDisplay01-Variable.woff2
+78bf54ef4212028e062f74e492dc309f7ec3d4ed3cf5fa788cd8909b3e556a21  CTZDisplay01-Italic-Variable.woff2
+11651621f0ff611f18c5e7c8baa52c84d853cc3b663251e8ff73570c8856b773  CTZDisplay01-Static-TTF.zip
 ```

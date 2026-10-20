@@ -2,6 +2,12 @@
 
 CTZ Display 01 is a bilingual Latin–Myanmar variable font combining Inter 4.001 with Pyidaungsu 2.5.3 Regular and Bold.
 
+## Line-height and baseline fix
+
+Version 0.4.0 fixes oversized text boxes and awkward icon/text centering in Figma, LibreOffice, and similar layout applications. Earlier builds inherited Pyidaungsu's very large vertical metrics (`2230/-1300`) and typographic line gap (`1663`), even when a text layer contained only Latin characters.
+
+CTZ Display 01 now uses Inter's compact typographic line box (`1984/-494`, zero line gap) for consistent Latin baselines and UI alignment. Separate Windows clipping bounds remain large enough for tall and deep Myanmar forms, and the `USE_TYPO_METRICS` flag is enabled. Glyph outlines and Myanmar shaping positions were not vertically shifted.
+
 ## Problem solved
 
 Inter is a strong variable UI font for English, but it does not contain a complete Myanmar glyph set or the shaping rules required for Burmese text. In Figma this can produce missing characters, inconsistent fallback fonts, incorrect stacked forms, or different line metrics between English and Myanmar.
