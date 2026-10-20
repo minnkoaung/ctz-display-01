@@ -39,6 +39,18 @@ The italic font contains permanently slanted Myanmar outlines for both weight st
 - [Italic WOFF2](outputs/CTZDisplay01-Italic-Variable.woff2)
 - [Technical notes](outputs/README.md)
 
+## Vertical-alignment QA
+
+An experimental, separately named **CTZ Display QA** family is available for controlled Figma and browser testing. It fixes the variable-font naming collision and restores Inter's variable GPOS kerning data without replacing the production **CTZ Display 01** family or translating glyph outlines.
+
+- [Investigation report](VERTICAL_ALIGNMENT_REPORT.md)
+- [Download the experimental QA package](outputs/CTZDisplayQA-Experimental.zip)
+- [QA fonts and browser specimen](outputs/qa/README.md)
+- [Figma test plan](outputs/qa/specimens/FIGMA_TEST_PLAN.md)
+- [Chromium comparison](outputs/qa/specimens/browser-comparison-chromium.png)
+
+Browser validation matches the exact Inter reference for the tested Latin strings and line boxes. Figma Desktop verification remains manual because its local-font cache and line-box implementation cannot be validated from font tables alone.
+
 ## Static font family
 
 The static package contains 18 conventional TTF files:

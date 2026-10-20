@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CTZ Display QA — Vertical Alignment</title>
+  <style>
+    @font-face {
+      font-family: "Inter QA Reference";
+      src: url("../reference/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+    @font-face {
+      font-family: "CTZ Display QA";
+      src: url("../web/CTZDisplayQA-Variable.woff2") format("woff2-variations");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+    @font-face {
+      font-family: "CTZ Display QA WinProbe";
+      src: url("../probe/CTZDisplayQA-WinProbe-Variable.woff2") format("woff2-variations");
+      font-style: normal;
+      font-weight: 100 900;
+    }
+    :root { color-scheme: light; font-family: system-ui, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 32px; color: #111827; background: #f4f7fb; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    h2 { margin: 32px 0 12px; font-size: 20px; }
+    p.note { margin: 0; max-width: 920px; color: #4b5563; }
+    .grid { display: grid; grid-template-columns: 120px 1fr 1fr; gap: 8px 16px; align-items: start; }
+    .head { font: 600 13px/1 system-ui, sans-serif; color: #4b5563; padding-bottom: 4px; }
+    .label { font: 500 12px/1.3 system-ui, sans-serif; color: #6b7280; padding-top: 8px; }
+    .cell { position: relative; min-height: 44px; padding: 8px; background: white; border: 1px solid #d8dee9; border-radius: 8px; overflow: visible; }
+    .line { display: inline-block; background: rgba(124, 58, 237, .08); outline: 1px solid rgba(124, 58, 237, .38); white-space: nowrap; font-variation-settings: "opsz" 14; }
+    .inter { font-family: "Inter QA Reference"; }
+    .ctz { font-family: "CTZ Display QA"; }
+    .probe { font-family: "CTZ Display QA WinProbe"; }
+    .regular { font-weight: 400; }
+    .medium { font-weight: 500; }
+    .multiline { white-space: normal; width: 260px; }
+    table { border-collapse: collapse; width: 100%; max-width: 1100px; background: white; }
+    th, td { border: 1px solid #d8dee9; padding: 7px 9px; text-align: right; font: 12px/1.25 ui-monospace, monospace; }
+    th:first-child, td:first-child { text-align: left; }
+    .pass { color: #047857; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>CTZ Display QA — vertical alignment</h1>
+  <p class="note">Exact Inter 4.001 reference versus uniquely named CTZ Display QA. Purple outlines show DOM line boxes. Use this file in Chromium, Safari, and Firefox; do not install either webfont.</p>
+
+  <h2>14px / explicit 22px line height</h2>
+  <div class="grid">
+    <div></div><div class="head">Inter 4.001</div><div class="head">CTZ Display QA</div>
+    <div class="label">Regular</div>
+    <div class="cell"><span id="inter-explicit-regular" class="line inter regular" style="font-size:14px;line-height:22px">View</span></div>
+    <div class="cell"><span id="ctz-explicit-regular" class="line ctz regular" style="font-size:14px;line-height:22px">View</span></div>
+    <div class="label">Medium</div>
+    <div class="cell"><span id="inter-explicit-medium" class="line inter medium" style="font-size:14px;line-height:22px">View</span></div>
+    <div class="cell"><span id="ctz-explicit-medium" class="line ctz medium" style="font-size:14px;line-height:22px">View</span></div>
+    <div class="label">Automatic</div>
+    <div class="cell"><span id="inter-auto" class="line inter regular" style="font-size:14px;line-height:normal">View</span></div>
+    <div class="cell"><span id="ctz-auto" class="line ctz regular" style="font-size:14px;line-height:normal">View</span></div>
+    <div class="label">WinProbe automatic</div>
+    <div class="cell"><span class="line inter regular" style="font-size:14px;line-height:normal">View</span></div>
+    <div class="cell"><span id="probe-auto" class="line probe regular" style="font-size:14px;line-height:normal">View</span></div>
+  </div>
+
+  <h2>Requested Latin sizes and weights</h2>
+  <div id="latin-grid" class="grid"></div>
+
+  <h2>Myanmar and mixed-script shaping</h2>
+  <div class="grid">
+    <div></div><div class="head">Inter reference / system fallback</div><div class="head">CTZ Display QA native Myanmar</div>
+    <div class="label">Words + marks</div>
+    <div class="cell"><span class="line inter regular" style="font-size:18px;line-height:28px">မြန်မာစာ ကြိုဆိုပါတယ်။ မြို့ နိုင်ငံတော်</span></div>
+    <div class="cell"><span class="line ctz regular" style="font-size:18px;line-height:28px">မြန်မာစာ ကြိုဆိုပါတယ်။ မြို့ နိုင်ငံတော်</span></div>
+    <div class="label">Stacks</div>
+    <div class="cell"><span class="line inter medium" style="font-size:18px;line-height:28px">က္က န္တ မ္ဘာ ကျွမ်းကျင်မှု</span></div>
+    <div class="cell"><span class="line ctz medium" style="font-size:18px;line-height:28px">က္က န္တ မ္ဘာ ကျွမ်းကျင်မှု</span></div>
+    <div class="label">Mixed</div>
+    <div class="cell"><span class="line inter regular" style="font-size:16px;line-height:24px">Submit ပေးပို့ရန် · ၁၂၃၄၅ · MMK 50,000</span></div>
+    <div class="cell"><span class="line ctz regular" style="font-size:16px;line-height:24px">Submit ပေးပို့ရန် · ၁၂၃၄၅ · MMK 50,000</span></div>
+    <div class="label">Multiline</div>
+    <div class="cell"><span class="line multiline inter regular" style="font-size:16px;line-height:24px">Search results wrap across multiple lines. မြန်မာစာလည်း စာကြောင်းများအတွင်း မှန်ကန်စွာ ပေါ်ရမည်။</span></div>
+    <div class="cell"><span class="line multiline ctz regular" style="font-size:16px;line-height:24px">Search results wrap across multiple lines. မြန်မာစာလည်း စာကြောင်းများအတွင်း မှန်ကန်စွာ ပေါ်ရမည်။</span></div>
+  </div>
+
+  <h2>Browser measurements</h2>
+  <table id="measurements">
+    <thead><tr><th>Case</th><th>Inter DOM height</th><th>CTZ DOM height</th><th>Inter actual ↑/↓</th><th>CTZ actual ↑/↓</th><th>Result</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    const cases = [
+      [12, 16], [14, 22], [16, 24], [18, 26], [24, 32], [30, 38]
+    ];
+    const latinText = "View · Search · Submit · Placeholder · Ag · gjpqy · 0123456789 · !?.,:;()[]{}+-/%@#&";
+    const latinGrid = document.getElementById("latin-grid");
+    latinGrid.innerHTML = '<div></div><div class="head">Inter 4.001</div><div class="head">CTZ Display QA</div>';
+    for (const [size, height] of cases) {
+      for (const [weightName, weight] of [["Regular", 400], ["Medium", 500]]) {
+        const label = document.createElement("div");
+        label.className = "label";
+        label.textContent = `${size}px / ${height}px · ${weightName}`;
+        latinGrid.append(label);
+        for (const family of ["inter", "ctz"]) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          const span = document.createElement("span");
+          span.className = `line ${family}`;
+          span.style.fontSize = `${size}px`;
+          span.style.lineHeight = `${height}px`;
+          span.style.fontWeight = weight;
+          span.textContent = latinText;
+          cell.append(span);
+          latinGrid.append(cell);
+        }
+      }
+    }
+
+    function canvasMetrics(family, weight, size, text) {
+      const canvas = document.createElement("canvas");
+      const context = canvas.getContext("2d");
+      context.font = `${weight} ${size}px "${family}"`;
+      const result = context.measureText(text);
+      return [result.actualBoundingBoxAscent, result.actualBoundingBoxDescent];
+    }
+
+    async function measure() {
+      await document.fonts.ready;
+      const rows = [
+        ["14/22 Regular", "inter-explicit-regular", "ctz-explicit-regular", 400],
+        ["14/22 Medium", "inter-explicit-medium", "ctz-explicit-medium", 500],
+        ["14/auto Regular", "inter-auto", "ctz-auto", 400],
+        ["14/auto WinProbe", "inter-auto", "probe-auto", 400],
+      ];
+      const tbody = document.querySelector("#measurements tbody");
+      for (const [label, interId, ctzId, weight] of rows) {
+        const interHeight = document.getElementById(interId).getBoundingClientRect().height;
+        const ctzHeight = document.getElementById(ctzId).getBoundingClientRect().height;
+        const interActual = canvasMetrics("Inter QA Reference", weight, 14, "View");
+        const ctzFamily = ctzId === "probe-auto" ? "CTZ Display QA WinProbe" : "CTZ Display QA";
+        const ctzActual = canvasMetrics(ctzFamily, weight, 14, "View");
+        const pass = Math.abs(interHeight - ctzHeight) < 0.1 && interActual.join() === ctzActual.join();
+        const row = document.createElement("tr");
+        row.innerHTML = `<td>${label}</td><td>${interHeight.toFixed(2)}</td><td>${ctzHeight.toFixed(2)}</td><td>${interActual.join(" / ")}</td><td>${ctzActual.join(" / ")}</td><td class="${pass ? "pass" : ""}">${pass ? "MATCH" : "CHECK"}</td>`;
+        tbody.append(row);
+      }
+    }
+    measure();
+  </script>
+</body>
+</html>
