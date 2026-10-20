@@ -41,9 +41,7 @@ The italic font contains permanently slanted Myanmar outlines for both weight st
 
 ## Version 0.4.1 alignment fix
 
-The successful CTZ Display QA changes are now included in the production family. Version 0.4.1 gives the variable fonts a CTZ-specific PostScript variation prefix and restores Inter's GDEF Item Variation Store, preserving exact variable Latin kerning. Its typographic metrics remain identical to Inter, while safe Windows clipping bounds protect Myanmar marks and stacks.
-
-- [Vertical-alignment investigation](VERTICAL_ALIGNMENT_REPORT.md)
+Version 0.4.1 gives the variable fonts a CTZ-specific PostScript variation prefix and restores Inter's GDEF Item Variation Store, preserving exact variable Latin kerning. Its typographic metrics remain identical to Inter, while safe Windows clipping bounds protect Myanmar marks and stacks.
 
 Remove CTZ Display 01 v0.4.0 before installing v0.4.1, then fully restart Figma to clear the old family cache.
 

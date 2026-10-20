@@ -42,7 +42,7 @@ Install either the variable fonts or the static family, not both simultaneously.
 
 Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight shaping matches Pyidaungsu 2.5.3 Regular; Bold-weight shaping matches Pyidaungsu 2.5.3 Bold. Complex substitutions, medials, vowels, punctuation, and Myanmar digits were tested with HarfBuzz.
 
-`Pyidaungsu-2.5.3_Numbers.ttf` was not merged. CTZ Display 01 keeps Inter for ASCII `0`–`9` and Pyidaungsu for Myanmar digits U+1040–U+1049.
+The separate Pyidaungsu Numbers font is not required or merged. CTZ Display 01 keeps Inter for ASCII `0`–`9` and Pyidaungsu for Myanmar digits U+1040–U+1049.
 
 ## Validation
 
@@ -56,7 +56,7 @@ Both Pyidaungsu masters' `mym2` shaping lookups are retained. Regular-weight sha
 - Validated all 18 static fonts for naming, weight classes, style flags, absence of variable tables, reload, and Myanmar shaping.
 - Confirmed variable instances and all static fonts match Inter's vertical metrics while retaining Myanmar safety bounds.
 
-The fixes were confirmed in Figma with a separately named QA build before promotion to production. Remove CTZ Display 01 v0.4.0, install the v0.4.1 TTFs, and fully restart Figma to avoid cached font data.
+The fixes were confirmed in Figma before release. Remove CTZ Display 01 v0.4.0, install the v0.4.1 TTFs, and fully restart Figma to avoid cached font data.
 
 ## Licensing
 
